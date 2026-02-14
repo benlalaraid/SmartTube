@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart YouTube Downloader</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header / Search Area -->
+        <header class="main-header">
+            <h1 class="logo">Smart <span class="highlight">Tube</span></h1>
+            <div class="search-container">
+                <div class="search-box">
+                    <span class="material-icons search-icon">search</span>
+                    <input type="text" id="videoUrl" placeholder="Paste YouTube link here..." autocomplete="off">
+                    <button id="searchBtn" class="btn-primary">Search</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Fetching video details...</p>
+        </div>
+
+        <!-- content Area -->
+        <main id="content" class="hidden">
+            <div class="video-card">
+                <div class="video-info">
+                    <img id="thumbnail" src="" alt="Thumbnail">
+                    <div class="details">
+                        <h2 id="videoTitle">Video Title</h2>
+                        <p id="videoDuration">Duration: <span></span></p>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="download">Download</button>
+                    <button class="tab-btn" data-tab="chat">Chat with Video</button>
+                </div>
+
+                <!-- Download Tab -->
+                <div id="downloadTab" class="tab-content active">
+                    <h3>Available Formats</h3>
+
+                    <!-- Progress Bar -->
+                    <div id="progressContainer" class="hidden">
+                        <div class="progress-bar-bg">
+                            <div id="progressBar" class="progress-bar-fill"></div>
+                        </div>
+                        <p id="progressText">0%</p>
+                    </div>
+
+                    <div class="format-list" id="formatList">
+                        <!-- Formats injected here -->
+                    </div>
+                </div>
+
+                <!-- Chat Tab -->
+                <div id="chatTab" class="tab-content">
+                    <div id="chatInterface" class="chat-interface">
+                        <div class="chat-header">
+                            <span class="material-icons">smart_toy</span>
+                            <h3>AI Assistant</h3>
+                            <button id="analyzeBtn" class="btn-secondary">Analyze Video</button>
+                        </div>
+                        <div id="chatMessages" class="chat-messages">
+                            <div class="message system">
+                                <p>Click "Analyze Video" to start chatting about the content.</p>
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="chatInput" placeholder="Ask something about the video..." disabled>
+                            <button id="sendBtn" disabled><span class="material-icons">send</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast/Notification -->
+    <div id="toast" class="hidden"></div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>
